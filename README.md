@@ -1,27 +1,74 @@
-# React + TypeScript + Vite
+# UTS PWL Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Author
 
-Currently, two official plugins are available:
+- 120140194 - Muhammad Elang Permadani
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- useSWR
+- React Router DOM
+- React Hook Form
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## How to run
 
-- Configure the top-level `parserOptions` property like this:
+- Clone this repository
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+git clone https://github.com/maybeenang/PWL-UTS-FrontEnd.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- change directory
+
+```bash
+cd PWL-UTS-FrontEnd
+```
+
+- Install dependencies
+
+```bash
+npm install
+```
+
+- Run the app
+
+```bash
+npm run dev
+```
+
+note: make sure the backend is running, you can check it [here](https://github.com/maybeenang/PWL-UTS-BackEnd.git)
+
+## Screenshots
+
+- Home Page
+
+![Home Page](./docs/home.png)
+
+- Create Product Page
+
+![Create Product Page](./docs/create%20product.png)
+
+- Update Product Page
+
+![Update Product Page](./docs/edit.png)
+
+- Delete Product
+
+![Delete Product](./docs/delete1.png)
+![Delete Product](./docs/delete2.png)
+
+- Detail Product Page
+
+![Detail Product Page](./docs/detail.png)
+
+- Cart Page
+
+![Cart Page](./docs/cart.png)
+
+- Checkout Page and Sum total price (from server)
+
+![Checkout Page](./docs/checkout.png)
