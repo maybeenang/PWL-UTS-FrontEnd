@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import defaultProductImage from "../assets/deafaultProducts.png";
 import { Product } from "../models/Product";
+import useImageValid from "../hooks/useImageValid";
 
 const Card: React.FC<{
   product: Product;
 }> = ({ product }) => {
   const navigate = useNavigate();
+  const isImageValid = useImageValid(product.image_url);
 
   return (
     <div
@@ -14,8 +16,14 @@ const Card: React.FC<{
         navigate(`/detail-product/${product?.id}`);
       }}
     >
-      <img src={defaultProductImage} className="bg-gray-100 rounded-lg mb-4" />
-      <h1 className="text-lg font-semibold mb-1">{product?.name}</h1>
+      <div className="bg-gray-100 rounded-lg mb-4 object-contain flex justify-center">
+        <img
+          src={isImageValid ? product.image_url : defaultProductImage}
+          className="object-contain w-36 h-40"
+        />
+      </div>
+
+      <h1 className="text-lg font-semibold mb-1 truncate">{product?.name}</h1>
       <p className="text-sm mb-4">Rp. {product?.price}</p>
       <div className="flex items-center justify-between">
         <p className="text-xs">Stock : {product?.stock}</p>

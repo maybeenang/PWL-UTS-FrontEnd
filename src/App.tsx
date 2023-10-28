@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import CreateProductsPage from "./pages/CreateProductsPage";
 import DetailProductPage from "./pages/DetailProductPage";
+import EditProductPage from "./pages/EditProductPage";
 
 const App = () => {
   // create routes
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="cart" element={<CartPage />} />
           <Route path="create-product" element={<CreateProductsPage />} />
           <Route path="detail-product/:id" element={<DetailProductPage />} />
+          <Route path="edit-product/:id" element={<EditProductPage />} />
         </Route>
       </>
     )
