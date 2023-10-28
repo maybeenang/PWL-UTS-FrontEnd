@@ -7,6 +7,7 @@ import useProduct from "../hooks/useProduct";
 import useImageValid from "../hooks/useImageValid";
 import { axiosInstance } from "../helpers/axios";
 import { mutate } from "swr";
+import { useCart } from "../hooks/useCart";
 
 const DetailProductPage = () => {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ const DetailProductPage = () => {
   const { id = "" } = useParams();
 
   const { data, isLoading, error } = useProduct({ id: id });
+
+  const { addToCart } = useCart();
 
   const isImageValid = useImageValid(data?.image_url);
 
@@ -82,7 +85,12 @@ const DetailProductPage = () => {
               <p className="text-sm">{data?.stock}</p>
               <p className="text-sm">{data?.description}</p>
               <div className="mt-4 flex -ml-4">
-                <Button onClick={() => {}} className="text-xs mr-2">
+                <Button
+                  onClick={() => {
+                    addToCart(data);
+                  }}
+                  className="text-xs mr-2"
+                >
                   Add to Cart
                   <Icons.FaShoppingCart className="inline-block ml-2" />
                 </Button>

@@ -10,6 +10,7 @@ import CartPage from "./pages/CartPage";
 import CreateProductsPage from "./pages/CreateProductsPage";
 import DetailProductPage from "./pages/DetailProductPage";
 import EditProductPage from "./pages/EditProductPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   // create routes
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="create-product" element={<CreateProductsPage />} />
           <Route path="detail-product/:id" element={<DetailProductPage />} />
           <Route path="edit-product/:id" element={<EditProductPage />} />
+          <Route path="checkout" element={<CheckoutPage />} />
         </Route>
       </>
     )

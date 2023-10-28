@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import defaultProductImage from "../assets/deafaultProducts.png";
-import { Product } from "../models/Product";
 import useImageValid from "../hooks/useImageValid";
-import { CartContextValue, useCart } from "../hooks/useCart";
+import { CartContextValue, CartItem, useCart } from "../hooks/useCart";
+import Button from "./Button";
 
-const Card: React.FC<{
-  product: Product;
+const CardCart: React.FC<{
+  product: CartItem;
 }> = ({ product }) => {
   const navigate = useNavigate();
   const isImageValid = useImageValid(product.image_url);
 
-  const { cartItems, addToCart }: CartContextValue = useCart() || {
+  const { cartItems, removeFromCart }: CartContextValue = useCart() || {
     cartItems: [],
     addToCart: () => {},
     removeFromCart: () => {},
@@ -32,21 +32,21 @@ const Card: React.FC<{
       </div>
 
       <h1 className="text-lg font-semibold mb-1 truncate">{product?.name}</h1>
-      <p className="text-sm mb-4">Rp. {product?.price}</p>
+      <p className="text-xs">Rp. {product?.price}</p>
       <div className="flex items-center justify-between">
-        <p className="text-xs">Stock : {product?.stock}</p>
-        <button
+        <p className="text-xs">Amount : {product?.quantity}</p>
+        <Button
+          className="text-xs"
           onClick={(event) => {
             event.stopPropagation();
-            addToCart(product);
+            removeFromCart(product);
           }}
-          className="bg-black text-white rounded-full px-4 py-2 font-semibold border-2 border-black text-xs hover:bg-white hover:text-black transition-all "
         >
-          Add to cart
-        </button>
+          Remove
+        </Button>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default CardCart;
